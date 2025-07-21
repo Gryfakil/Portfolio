@@ -92,7 +92,7 @@ export const Navigation = () => {
           onClick={() => navigate('/')}
           className="text-white hover:opacity-70 transition-opacity duration-300 text-left"
         >
-          <div className="text-lg font-light tracking-[0.3em]">JULIEN GOMEZ</div>
+          <div className="text-lg font-light tracking-[0.3em]">JULIEN GOMZ</div>
           <div className="text-xs font-light tracking-[0.2em] opacity-60">Paris, France</div>
         </button>
         <div className="flex space-x-12 mt-1">
