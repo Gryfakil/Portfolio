@@ -87,22 +87,29 @@ export const Navigation = () => {
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50">
-      <div className="flex justify-between items-start px-8 py-6">
+      <div className="flex justify-between items-center px-8 py-6">
+        {/* Bouton Accueil à gauche */}
         <button 
           onClick={() => navigate('/')}
-          className="text-white hover:opacity-70 transition-opacity duration-300 text-left"
+          className="text-white hover:opacity-70 transition-opacity duration-300 flex-shrink-0"
         >
-          <div className="text-lg font-light tracking-[0.3em]">JULIEN GOMZ</div>
-          <div className="text-xs font-light tracking-[0.2em] opacity-60">Paris, France</div>
+          <div className="text-lg font-light tracking-[0.3em]">ACCUEIL</div>
         </button>
-        <div className="flex space-x-12 mt-1">
-          <button 
-            onClick={() => navigate('/about')}
-            className="text-white text-sm font-light tracking-[0.2em] hover:opacity-70 transition-opacity duration-300"
-          >
-            CONTACT
-          </button>
+        
+        {/* Nom au centre - MASQUÉ SUR MOBILE */}
+        <div className="text-center hidden md:block">
+          <div className="text-lg font-light tracking-[0.3em] text-white">JULIEN GOMEZ</div>
+          <div className="text-xs font-light tracking-[0.2em] opacity-60 text-white">Paris, France</div>
         </div>
+        
+        {/* Bouton Contact à droite */}
+        <button 
+          onClick={() => navigate('/about')}
+          className="text-white font-light tracking-[0.2em] hover:opacity-70 transition-opacity duration-300 flex-shrink-0"
+          style={{ fontSize: '18px' }}
+        >
+          CONTACT
+        </button>
       </div>
     </nav>
   );
@@ -347,11 +354,15 @@ useEffect(() => {
   return (
     <div className="relative h-screen overflow-hidden bg-black">
       <ProjectCard
+
+      
         key={mockProjects[currentProject].id}
         project={mockProjects[currentProject]}
         index={currentProject}
         isActive={true}
       />
+
+
 
       <div className="fixed right-8 top-1/2 transform -translate-y-1/2 z-40">
         <div className="flex flex-col space-y-5">
@@ -370,15 +381,22 @@ useEffect(() => {
         </div>
       </div>
 
-      <div className="fixed bottom-8 left-1/2 transform -translate-x-1/2 z-40">
-        <div 
-          className={`text-white text-xs font-light tracking-[0.25em] transition-opacity duration-1000 ${
-            isScrolling ? 'opacity-30' : 'opacity-60'
-          }`}
-        >
-          <span className="animate-pulse">( défiler vers le bas )</span>
-        </div>
-      </div>
+      <div className="fixed bottom-8 left-1/2 transform -translate-x-1/2 z-40 px-4">
+  <div 
+    className={`text-white text-xs sm:text-base font-light tracking-[0.15em] sm:tracking-[0.25em] transition-all duration-1000 flex flex-col items-center ${
+      isScrolling ? 'opacity-50' : 'opacity-90'
+    }`}
+  >
+    <div className="animate-bounce mb-2">
+      <svg className="w-5 h-5 sm:w-6 sm:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+      </svg>
+    </div>
+    <span className="animate-pulse text-center">
+      DÉFILER VERS LE BAS
+    </span>
+  </div>
+</div>
 
       <div className="fixed bottom-8 right-8 z-40">
         <div className="flex space-x-8">
